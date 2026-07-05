@@ -27,6 +27,7 @@
                         <th>#</th>
                         <th>Gambar</th>
                         <th>Nama Produk</th>
+                        <th>Distributor</th>
                         <th>Kategori</th>
                         <th>Harga Produk</th>
                         <th>Action</th>
@@ -43,6 +44,10 @@
 
                         <td>{{ $item->name }}</td>
 
+                        <td>
+                            {{ $item->distributor->nama_distributor ?? '-' }}
+                        </td>
+
                         <td>{{ $item->category }}</td>
 
                         <td>{{ $item->price }} Points</td>
@@ -55,17 +60,16 @@
                             <a href="{{ route('product.edit', $item->id) }}"
                                     class="badge badge-warning">
                                     Edit
-                            </a>
-                            <a href="{{ route('product.delete', $item->id) }}"
-                                 data-confirm-delete="true"
-                                    class="badge badge-danger">
-                                 Hapus
-                            </a>
+                           <a href="{{ route('product.delete', $item->id) }}"
+    class="badge badge-danger"
+    onclick="return confirm('Yakin ingin menghapus produk ini?')">
+    Hapus
+</a>
                         </td>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="6" class="text-center">
+                        <td colspan="7" class="text-center">
                             Data Produk Kosong
                         </td>
                     </tr>

@@ -35,6 +35,30 @@
                 <div class="card-body">
                     <div class="row">
 
+                    <div class="col-6">
+    <div class="form-group">
+        <label for="id_distributor">Nama Distributor</label>
+
+        <select name="id_distributor" class="form-control" required>
+
+            <option value="">-- Pilih Distributor --</option>
+
+            @foreach ($distributors as $distributor)
+                <option value="{{ $distributor->id }}"
+                    {{ $product->id_distributor == $distributor->id ? 'selected' : '' }}>
+                    {{ $distributor->nama_distributor }}
+                </option>
+            @endforeach
+
+        </select>
+
+        <div class="invalid-feedback">
+            Pilih distributor terlebih dahulu!
+        </div>
+
+    </div>
+</div>
+
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="name">Nama Produk</label>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Distributor;
 
 class Product extends Model
 {
@@ -11,8 +12,14 @@ class Product extends Model
         'price',
         'category',
         'description',
-        'image'
+        'image',
+        'id_distributor'
     ];
+
+    public function distributor()
+{
+    return $this->belongsTo(Distributor::class, 'id_distributor');
+}
 
     public function flashSale()
 {
